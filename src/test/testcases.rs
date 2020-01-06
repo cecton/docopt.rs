@@ -799,3 +799,26 @@ Options:
   -x ARG
   -y", &["-x-y"], vec!(("-x", Plain(Some("-y".to_string())))));
 
+test_expect!(test_216_testcases, r#"
+Ethereum ABI coder.
+  Copyright 2016-2018 Parity Technologies (UK) Limited
+
+Usage:
+    ethabi encode function <abi-path> <function-name> [-p <param>]... [-l | --lenient]
+    ethabi encode params [-v <type> <param>]... [-l | --lenient]
+    ethabi decode function <abi-path> <function-name> <data>
+    ethabi decode params [-t <type>]... <data>
+    ethabi decode log <abi-path> <event-name-or-signature> [-l <topic>]... <data>
+    ethabi -h | --help
+
+Options:
+    -h, --help         Display this message and exit.
+    -l, --lenient      Allow short representation of input params.
+
+Commands:
+    encode             Encode ABI call.
+    decode             Decode ABI call result.
+    function           Load function from json ABI file.
+    params             Specify types of input params inline.
+    log                Decode event log.
+"#, &["encode", "function", "V", "lotsofstuff", "-p", "2C33B04ae6B405dEE94a6503dbe6a7CaD3f082Ca", "-p", "2C33B04ae6B405dEE94a6503dbe6a7CaD3f082Ca", "-p", "0000000000000000000000000000000000000000000000001bc16d674ec80000", "-p", "00000000000000000000000000000000000000000000000001671455cef6f770", "-p", "0000000000000000000000000000000000000000000000000000000000000000", "-p", "0000000000000000000000000000000000000000000000000000000000000000", "-p", "c3455912Cf4bF115835A655c70bCeFC9cF4568eB", "-p", "28", "-p", "7b93f2490c1833e65f9bfa58cd50e9f097edc408e65ebe88a5551dfb53ec3755", "-p", "4ab85d434db4881066e773411c6cf6b86966f4b5860f475b4dba2fa5608302ce", "-p", "2C33B04ae6B405dEE94a6503dbe6a7CaD3f082Ca", "-p", "2ef865ca017912c872826e25736a7a11f94235af", "-p", "0000000000000000000000000000000000000000000000000000000000000000", "-p", "0000000000000000000000000000000000000000000000000000000000000000", "-p", "1", "-p", "28", "-p", "020303e12cbea2da5ab221a728bac53b8618cf8d9f3f4968cd24a7d9d1cf6abe", "-p", "1e5a551d56422020a5b8f9b70d19b3771b0fc4c79334e353cef42a8eeeecc879", "-l"], vec!());
